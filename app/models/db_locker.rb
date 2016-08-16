@@ -1,0 +1,2 @@
+class DbLocker < ApplicationRecord
+end

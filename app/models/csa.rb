@@ -1,0 +1,2 @@
+class Csa < ApplicationRecord
+end

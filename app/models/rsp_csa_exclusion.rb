@@ -1,0 +1,2 @@
+class RspCsaExclusion < ApplicationRecord
+end

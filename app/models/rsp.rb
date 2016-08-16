@@ -1,0 +1,2 @@
+class Rsp < ApplicationRecord
+end

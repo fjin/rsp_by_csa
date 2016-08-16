@@ -1,0 +1,2 @@
+class RspTechnologyType < ApplicationRecord
+end

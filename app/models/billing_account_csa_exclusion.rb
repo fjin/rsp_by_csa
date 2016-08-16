@@ -1,0 +1,2 @@
+class BillingAccountCsaExclusion < ApplicationRecord
+end

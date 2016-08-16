@@ -1,0 +1,2 @@
+class CsaServiceType < ApplicationRecord
+end
