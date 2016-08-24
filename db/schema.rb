@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20160816013236) do
     t.integer  "billing_account_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["billing_account_id"], name: "index_billing_account_csas_on_billing_account_id"
+    t.index ["csa_id"], name: "index_billing_account_csas_on_csa_id"
   end
 
   create_table "billing_accounts", force: :cascade do |t|
@@ -67,9 +69,9 @@ ActiveRecord::Schema.define(version: 20160816013236) do
   create_table "inbounds", force: :cascade do |t|
     t.string   "billing_account"
     t.string   "billing_account_name"
-    t.integer  "csa_id"
+    t.string   "csa_id"
     t.string   "csa_name"
-    t.string   "state_territory"
+    t.string   "state_territory_code"
     t.string   "service_type_id"
     t.string   "service_type_name"
     t.datetime "inserted_ts"

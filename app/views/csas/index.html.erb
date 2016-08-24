@@ -1,7 +1,8 @@
+<div ng-controller="CsasController" ng-cloak>
 <h1>Csas#index</h1>
 <p>Find me in app/views/csas/index.html.erb</p>
 
-
+{{controllerName}}
 
 
 <table>
@@ -12,14 +13,16 @@
     <th>code</th>
   </tr>
 
-  <% @csas.each do |csa| %>
-    <tr>
-      <td><%= csa.id %></td>
-      <td><%= csa.name %></td>
-      <td><%= csa.state %></td>
-      <td><%= csa.code %></td>
+  <tr ng-repeat="csa in csas">
+    <td>{{csa.id}}</td>
+    <td>{{csa.name}}</td>
+    <td>{{csa.state}}</td>
+    <td>{{csa.code}}</td>
 
-    </tr>
+  </tr>
 
-  <% end %>
 </table>
+
+
+</div>
+

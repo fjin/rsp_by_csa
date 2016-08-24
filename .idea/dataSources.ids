@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails rsp_by_csv: development" uuid="1b232b2b-0217-4bc3-be36-c0a476b6be54">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+      <table id="2" parent="1" name="account_csa_service_types"/>
+      <table id="3" parent="1" name="ar_internal_metadata"/>
+      <table id="4" parent="1" name="billing_account_csa_exclusions"/>
+      <table id="5" parent="1" name="billing_account_csas"/>
+      <table id="6" parent="1" name="billing_accounts"/>
+      <table id="7" parent="1" name="csa_service_types"/>
+      <table id="8" parent="1" name="csas"/>
+      <table id="9" parent="1" name="db_lockers"/>
+      <table id="10" parent="1" name="inbounds"/>
+      <table id="11" parent="1" name="relationships"/>
+      <table id="12" parent="1" name="rsp_csa_exclusions"/>
+      <table id="13" parent="1" name="rsp_technology_types"/>
+      <table id="14" parent="1" name="rsps"/>
+      <table id="15" parent="1" name="schema_migrations"/>
+      <table id="16" parent="1" name="service_types"/>
+      <table id="17" parent="1" name="sqlite_sequence"/>
+      <table id="18" parent="1" name="technology_types"/>
+      <column id="19" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="20" parent="2" name="billing_account_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="21" parent="2" name="csa_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="22" parent="2" name="service_type_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="23" parent="2" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="24" parent="2" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="25" parent="2">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="26" parent="3" name="key">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="27" parent="3" name="value">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="28" parent="3" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="29" parent="3" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="30" parent="3">
+        <columns>key</columns>
+        <primary>1</primary>
+      </key>
+      <column id="31" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="32" parent="4" name="billing_account_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="33" parent="4" name="csa_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="34" parent="4" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="35" parent="4" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="36" parent="4">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="37" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="38" parent="5" name="csa_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="39" parent="5" name="billing_account_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="40" parent="5" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="41" parent="5" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="42" parent="5">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="43" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="44" parent="6" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="45" parent="6" name="code">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="46" parent="6" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="47" parent="6" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="48" parent="6">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="49" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="50" parent="7" name="service_types_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="51" parent="7" name="csas_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="52" parent="7" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="53" parent="7" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="54" parent="7">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="55" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="56" parent="8" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="57" parent="8" name="state">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="58" parent="8" name="code">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="59" parent="8" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="60" parent="8" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="61" parent="8">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="62" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="63" parent="9" name="is_locked">
+        <data-type>BOOLEAN(0,-1)|4</data-type>
+      </column>
+      <column id="64" parent="9" name="lock_time">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="65" parent="9" name="locked_by">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="66" parent="9" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="67" parent="9" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="68" parent="9">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="69" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="70" parent="10" name="billing_account">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="71" parent="10" name="billing_account_name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="72" parent="10" name="csa_id">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="73" parent="10" name="csa_name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="74" parent="10" name="state_territory_code">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="75" parent="10" name="service_type_id">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="76" parent="10" name="service_type_name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="77" parent="10" name="inserted_ts">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="78" parent="10" name="source_effective_from_ts">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="79" parent="10" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="80" parent="10" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="81" parent="10">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="82" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="83" parent="11" name="relationship_type">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="84" parent="11" name="billing_account_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="85" parent="11" name="rsp_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="86" parent="11" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="87" parent="11" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="88" parent="11">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="89" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="90" parent="12" name="csa_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="91" parent="12" name="rsp_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="92" parent="12" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="93" parent="12" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="94" parent="12">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="95" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="96" parent="13" name="technology_types_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="97" parent="13" name="rsps_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="98" parent="13" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="99" parent="13" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="100" parent="13">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="101" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="102" parent="14" name="home_phone">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="103" parent="14" name="business_phone">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="104" parent="14" name="home_website">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="105" parent="14" name="fibre_website">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="106" parent="14" name="satellite_website">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="107" parent="14" name="wireless_website">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="108" parent="14" name="business_website">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="109" parent="14" name="business_name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="110" parent="14" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="111" parent="14" name="logo_name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="112" parent="14" name="service">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="113" parent="14" name="rsp_type">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="114" parent="14" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="115" parent="14" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="116" parent="14">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="117" parent="15" name="version">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <key id="118" parent="15">
+        <columns>version</columns>
+        <primary>1</primary>
+      </key>
+      <column id="119" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="120" parent="16" name="code">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="121" parent="16" name="is_deleted">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="122" parent="16" name="description">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="123" parent="16" name="technology_type_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="124" parent="16" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="125" parent="16" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="126" parent="16">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="127" parent="17" name="name">
+        <data-type>(0,-1)|12</data-type>
+      </column>
+      <column id="128" parent="17" name="seq">
+        <data-type>(0,-1)|12</data-type>
+      </column>
+      <column id="129" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="130" parent="18" name="code">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="131" parent="18" name="description">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="132" parent="18" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="133" parent="18" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="134" parent="18">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
