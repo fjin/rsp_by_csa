@@ -1,28 +1,40 @@
-<div ng-controller="CsasController" ng-cloak>
-<h1>Csas#index</h1>
-<p>Find me in app/views/csas/index.html.erb</p>
-
-{{controllerName}}
-
-
-<table>
-  <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>state</th>
-    <th>code</th>
-  </tr>
-
-  <tr ng-repeat="csa in csas">
-    <td>{{csa.id}}</td>
-    <td>{{csa.name}}</td>
-    <td>{{csa.state}}</td>
-    <td>{{csa.code}}</td>
-
-  </tr>
-
+<%- model_class = Csa -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:code) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @csas.each do |csa| %>
+      <tr>
+        <td><%= link_to csa.id, csa_path(csa) %></td>
+        <td><%= csa.name %></td>
+        <td><%= csa.state %></td>
+        <td><%= csa.code %></td>
+        <td><%=l csa.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_csa_path(csa), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      csa_path(csa),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-
-</div>
-
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_csa_path,
+            :class => 'btn btn-primary' %>

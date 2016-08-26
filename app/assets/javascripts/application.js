@@ -17,4 +17,8 @@
 //= require angular-route/angular-route
 
 //= require modules
+
+//= require bootstrap-sprockets
+
+
 //= require_tree .

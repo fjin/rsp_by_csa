@@ -1,0 +1,41 @@
+<%- model_class = Rsp -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:home_phone) %>:</strong></dt>
+  <dd><%= @rsp.home_phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:business_phone) %>:</strong></dt>
+  <dd><%= @rsp.business_phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:home_website) %>:</strong></dt>
+  <dd><%= @rsp.home_website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fibre_website) %>:</strong></dt>
+  <dd><%= @rsp.fibre_website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:satellite_website) %>:</strong></dt>
+  <dd><%= @rsp.satellite_website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:wireless_website) %>:</strong></dt>
+  <dd><%= @rsp.wireless_website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:business_website) %>:</strong></dt>
+  <dd><%= @rsp.business_website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:business_name) %>:</strong></dt>
+  <dd><%= @rsp.business_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @rsp.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo_name) %>:</strong></dt>
+  <dd><%= @rsp.logo_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:service) %>:</strong></dt>
+  <dd><%= @rsp.service %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rsp_type) %>:</strong></dt>
+  <dd><%= @rsp.rsp_type %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              rsps_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_rsp_path(@rsp), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              rsp_path(@rsp),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

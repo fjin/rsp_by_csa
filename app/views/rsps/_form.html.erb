@@ -1,0 +1,111 @@
+<%= form_for @rsp, :html => { :class => "form-horizontal rsp" } do |f| %>
+
+  <% if @rsp.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@rsp.errors.count, "error") %> prohibited this rsp from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @rsp.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :home_phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :home_phone, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:home_phone) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :business_phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :business_phone, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:business_phone) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :home_website, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :home_website, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:home_website) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fibre_website, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :fibre_website, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:fibre_website) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :satellite_website, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :satellite_website, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:satellite_website) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :wireless_website, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :wireless_website, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:wireless_website) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :business_website, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :business_website, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:business_website) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :business_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :business_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:business_name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :logo_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :logo_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:logo_name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :service, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :service, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:service) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rsp_type, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :rsp_type, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:rsp_type) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                rsps_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

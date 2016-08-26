@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Rsp by Csa
 
-Things you may want to cover:
+###1 Gem required
 
-* Ruby version
+<pre><code>
 
-* System dependencies
+gem 'bower-rails'
 
-* Configuration
+gem "rspec"
 
-* Database creation
+gem 'capybara'
 
-* Database initialization
+gem 'faker'
 
-* How to run the test suite
+gem 'factory_girl_rails'
 
-* Services (job queues, cache servers, search engines, etc.)
+gem 'simplecov', :require => false, :group => :test
 
-* Deployment instructions
+gem 'pry'
 
-* ...
+gem 'whenever'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+</code></pre>

@@ -1,0 +1,23 @@
+<%- model_class = DbLocker -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:is_locked) %>:</strong></dt>
+  <dd><%= @db_locker.is_locked %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lock_time) %>:</strong></dt>
+  <dd><%= @db_locker.lock_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:locked_by) %>:</strong></dt>
+  <dd><%= @db_locker.locked_by %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              db_lockers_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_db_locker_path(@db_locker), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              db_locker_path(@db_locker),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

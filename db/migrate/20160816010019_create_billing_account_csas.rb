@@ -22,7 +22,7 @@ class CreateBillingAccountCsas < ActiveRecord::Migration[5.0]
   def change
     create_table :billing_account_csas do |t|
       t.belongs_to :csa, index: true
-      t.belongs_to :billing_account, index: true
+      t.belongs_to :billing_accounts, index: true
 
       t.timestamps
     end

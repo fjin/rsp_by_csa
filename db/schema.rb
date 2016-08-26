@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(version: 20160816013236) do
   end
 
   create_table "csa_service_types", force: :cascade do |t|
-    t.integer  "service_types_id"
-    t.integer  "csas_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "csa_id"
+    t.integer  "service_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["csa_id"], name: "index_csa_service_types_on_csa_id"
+    t.index ["service_type_id"], name: "index_csa_service_types_on_service_type_id"
   end
 
   create_table "csas", force: :cascade do |t|
@@ -67,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160816013236) do
   end
 
   create_table "inbounds", force: :cascade do |t|
-    t.string   "billing_account"
+    t.string   "billing_accounts"
     t.string   "billing_account_name"
     t.string   "csa_id"
     t.string   "csa_name"

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RspController, type: :controller do
+RSpec.describe BillingAccountsController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

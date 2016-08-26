@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 'use strict'
 
-CsasController = ($scope, $http)->
+CsasController = ($scope, $http, CsaService)->
   self = this
   $scope.csas = {}
 
@@ -17,13 +17,8 @@ CsasController = ($scope, $http)->
     return
 
   getAllCsas = ($http, $scope) ->
-    $http.get('/api/v1/get_csas').then (result) ->
-      $scope.csas = result.data
-      return
-
-  getAllInbounds = ($http, $scope) ->
-    $http.get('/api/v1/get_inbounds').then (result) ->
-      $scope.csas = result.data
+    CsaService.getCsas().then (result) ->
+      $scope.csas = result
       return
 
   # call init()
@@ -36,5 +31,4 @@ CsasController = ($scope, $http)->
 
 
 
-angular.module('rsp_by_csa.csas')
-.controller('CsasController', CsasController)
+angular.module('rsp_by_csa.csas').controller('CsasController', CsasController)

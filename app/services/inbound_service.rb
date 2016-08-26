@@ -2,13 +2,20 @@
 class InboundService
 
   def self.importFromInbound
-    importCsasFromInbound
-    importBillingAccountsFromInbound
-    importBillingAccountCSARelationshipsFromInbound
-    importServiceTypesFromInbound
-    importBillingAccountCSAServiceTypesFromInbound
+    @inbounds = Inbound.all
 
-    deleteBillingAccountsThatAreNotInbound
+    unless @inbounds.size == 0
+      importServiceTypesFromInbound
+      importCsasFromInbound
+      importServiceTypeCsaRelationsFromInbound
+      importBillingAccountsFromInbound
+      importBillingAccountCSARelationshipsFromInbound
+      deleteBillingAccountsThatAreNotInbound
+      deleteCSAsThatNotInbound
+      deleteCsaServiceTypesThatNotInbound
+      importBillingAccountCSAServiceTypesFromInbound
+      clearInboundTable
+    end
 
   end
 
@@ -28,6 +35,18 @@ class InboundService
         csa.save
       end
     end
+  end
+
+
+  def self.importServiceTypeCsaRelationsFromInbound
+    @inbounds = Inbound.all
+    @inbounds.each do |inbound|
+      csa = Csa.find_by(code: inbound.csa_id, state: inbound.state_territory_code)
+      serviceType = ServiceType.find_by(code: inbound.service_type_id)
+      csa.service_types.push serviceType unless csa.service_types.include?(serviceType)
+      csa.save
+    end
+
   end
 
   def self.importBillingAccountsFromInbound
@@ -91,22 +110,48 @@ class InboundService
 
   def self.deleteBillingAccountsThatAreNotInbound
     billingAccounts = BillingAccount.all
-
     billingAccounts.each do |ba|
-      unless Inbound.find_by(billing_account: ba.code)
-        ba.csas.clear
+      unless Inbound.find_by(billing_accounts: ba.code)
+        billingAccountCsas = BillingAccountCsa.where(billing_account_id: ba.id)
+        billingAccountCsas.map(&:delete)
+        relationships = Relationship.where(billing_account_id: ba.id)
+        relationships.map(&:delete)
         ba.delete
       end
     end
-
-
   end
 
+
   def self.deleteCSAsThatNotInbound
+    csas = Csa.all
+    csas.each do |csa|
+      unless Inbound.find_by(csa_id: csa.code, state_territory_code: csa.state)
+        billingAccountCsas = BillingAccountCsa.where(csa_id: csa.id)
+        billingAccountCsas.map(&:delete)
+        rspCsaExclusion = RspCsaExclusion.where(csa_id: csa.id)
+        rspCsaExclusion.map(&:delete)
+        csaServiceTypes = CsaServiceType.where(csa_id: csa.id)
+        csaServiceTypes.map(&:delete)
+        csa.delete
+      end
+    end
 
   end
 
   def self.deleteCsaServiceTypesThatNotInbound
+    csaServiceTypes = CsaServiceType.all
+    csaServiceTypes.each do |csaServiceType|
+      serviceTypeCode = ServiceType.find(csaServiceType.service_type_id).code
+      unless Inbound.find_by(service_type_id: serviceTypeCode)
+
+        csaServiceType.delete
+      end
+    end
+  end
+
+
+  def self.clearInboundTable
+    Inbound.delete_all
 
   end
 

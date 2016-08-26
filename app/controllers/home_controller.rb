@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
+    # InboundService.importFromInbound
 
-    InboundService.importFromInbound
 
   end
 end

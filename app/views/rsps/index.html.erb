@@ -1,0 +1,58 @@
+<%- model_class = Rsp -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:home_phone) %></th>
+      <th><%= model_class.human_attribute_name(:business_phone) %></th>
+      <th><%= model_class.human_attribute_name(:home_website) %></th>
+      <th><%= model_class.human_attribute_name(:fibre_website) %></th>
+      <th><%= model_class.human_attribute_name(:satellite_website) %></th>
+      <th><%= model_class.human_attribute_name(:wireless_website) %></th>
+      <th><%= model_class.human_attribute_name(:business_website) %></th>
+      <th><%= model_class.human_attribute_name(:business_name) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:logo_name) %></th>
+      <th><%= model_class.human_attribute_name(:service) %></th>
+      <th><%= model_class.human_attribute_name(:rsp_type) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rsps.each do |rsp| %>
+      <tr>
+        <td><%= link_to rsp.id, rsp_path(rsp) %></td>
+        <td><%= rsp.home_phone %></td>
+        <td><%= rsp.business_phone %></td>
+        <td><%= rsp.home_website %></td>
+        <td><%= rsp.fibre_website %></td>
+        <td><%= rsp.satellite_website %></td>
+        <td><%= rsp.wireless_website %></td>
+        <td><%= rsp.business_website %></td>
+        <td><%= rsp.business_name %></td>
+        <td><%= rsp.name %></td>
+        <td><%= rsp.logo_name %></td>
+        <td><%= rsp.service %></td>
+        <td><%= rsp.rsp_type %></td>
+        <td><%=l rsp.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_rsp_path(rsp), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      rsp_path(rsp),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_rsp_path,
+            :class => 'btn btn-primary' %>
