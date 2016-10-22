@@ -1,2 +1,13 @@
+branch-defaults:
+  master:
+    environment: rsp-by-csa
+    group_suffix: null
 global:
+  application_name: rsp_by_csa
+  branch: null
+  default_ec2_keyname: aws-eb
+  default_platform: Ruby 2.3 (Puma)
+  default_region: us-west-2
   profile: eb-cli
+  repository: null
+  sc: git
