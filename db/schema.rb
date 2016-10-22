@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20160816013236) do
 
   create_table "billing_account_csas", force: :cascade do |t|
     t.integer  "csa_id"
-    t.integer  "billing_account_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["billing_account_id"], name: "index_billing_account_csas_on_billing_account_id"
+    t.integer  "billing_accounts_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["billing_accounts_id"], name: "index_billing_account_csas_on_billing_accounts_id"
     t.index ["csa_id"], name: "index_billing_account_csas_on_csa_id"
   end
 
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160816013236) do
   end
 
   create_table "inbounds", force: :cascade do |t|
-    t.string   "billing_accounts"
+    t.string   "billing_account"
     t.string   "billing_account_name"
     t.string   "csa_id"
     t.string   "csa_name"
